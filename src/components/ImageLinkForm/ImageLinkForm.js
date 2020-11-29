@@ -5,6 +5,9 @@ const ImageLinkForm = ( { onInputChange, onPictureSubmit }) => {
     return (
         <div>
             <p className='f3 ph5 mw-75'>
+                {'This app will try to find a face in an any image you post.'}
+            </p>
+            <p className='f3 ph5 mw-75'>
                 {'Enter an image-address into the field below and press "Detect". Give it a try.'}
             </p>
             <div className='center'>
