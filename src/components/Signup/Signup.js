@@ -26,7 +26,7 @@ class Signup extends React.Component {
     onSubmitSignUp = (/*password, password_confirm*/) => {
         // FOR PW CONFIRM:
         // if (password === password_confirm)
-        fetch('http://localhost:3000/signup', {
+        fetch('https://immense-shore-53284.herokuapp.com/signup', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
