@@ -138,6 +138,14 @@ class App extends Component {
         .catch(err => console.log(err));
     }
 
+    onClearInput = () => {
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = ""));
+        console.log(this.state.input);
+        this.setState({ input: ''});
+        console.log(this.state.input);
+    }
+
     onRouteChange = (route) => {
         if (route === 'signout') {
             this.setState(initialState)
@@ -161,11 +169,15 @@ class App extends Component {
                         <Rank name={this.state.user.name} entries={this.state.user.entries} />
                         <ImageLinkForm 
                             onInputChange={this.onInputChange}
-                            onPictureSubmit={this.onPictureSubmit} />
-                        <FaceRecognition 
+                            onPictureSubmit={this.onPictureSubmit}
+                            onClearInput={this.onClearInput} />
+                        {this.state.imageUrl !== ''
+                        ? <FaceRecognition 
                             imageUrl={imageUrl}
                             box={box} />
-                    </div>
+                        : this.state.imageUrl
+                        } 
+                    </div>                    
                     : route === 'signin' || route === 'signout'
                         ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
                     : route === 'signup'
